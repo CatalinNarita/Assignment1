@@ -19,8 +19,6 @@ public class DefaultEmployeeDAO implements EmployeeDAO {
 
     private static final String QUERY_1 = "select count(*) from employee where username = '";
     private static final String QUERY_2 = "' and password = '";
-    private static final String QUERY_3 = "select * from employee where username = '";
-    private static final String QUERY_4 = "' and password = '";
     private JdbcTemplate jdbcTemplate;
 
     private Employee employee;
@@ -59,7 +57,14 @@ public class DefaultEmployeeDAO implements EmployeeDAO {
     }
 
     public Employee getEmployee(String username, String password){
-        employee = jdbcTemplate.queryForObject(QUERY_3 + username + QUERY_4 + password + "';", new EmployeeRowMapper());
+        String SQL = "select * from employee where username = '" + username + "' and password = '" + password +"';";
+        employee = jdbcTemplate.queryForObject(SQL, new EmployeeRowMapper());
+        return this.employee;
+    }
+
+    public Employee getEmployeeById(int employeeId){
+        String SQL = "select * from employee where employeeId = " + employeeId + ";";
+        employee = jdbcTemplate.queryForObject(SQL, new EmployeeRowMapper());
         return this.employee;
     }
 
@@ -73,9 +78,14 @@ public class DefaultEmployeeDAO implements EmployeeDAO {
         jdbcTemplate.update(SQL, employee.getEmployeeId());
     }
 
+    public void deleteEmployeeById(int employeeId) {
+        String SQL = "delete from employee where employeeId = ?";
+        jdbcTemplate.update(SQL, employeeId);
+    }
+
     public void updateEmployee(Employee employee) {
         String SQL = "update employee set username = ?, password = ?, name = ? where employeeId = ?;";
-        jdbcTemplate.update(SQL, employee.getUsername(), employee.getPassword(),employee.getName());
+        jdbcTemplate.update(SQL, employee.getUsername(), employee.getPassword(),employee.getName(), employee.getEmployeeId());
     }
 
     public boolean usernameExists(String username) {
@@ -87,5 +97,4 @@ public class DefaultEmployeeDAO implements EmployeeDAO {
             return true;
         return false;
     }
-
 }

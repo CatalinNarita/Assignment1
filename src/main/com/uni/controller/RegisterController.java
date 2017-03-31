@@ -46,12 +46,9 @@ public class RegisterController {
         }
 
         int employeeId = registerService.getEmployeeId();
-        Employee employee = new Employee(employeeId,username, password1, name, (byte)(0));
-
+        Employee employee = new Employee(employeeId,name,username, password1, (byte)(0));
         registerService.getDefaultEmployeeDAO().addEmployee(employee);
-
         modelAndView = new ModelAndView("login");
-
         modelAndView.addObject("message","You have successfully registered! You can login in with your new account.");
         return modelAndView;
     }

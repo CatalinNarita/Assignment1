@@ -32,14 +32,13 @@ public class LoginController {
         ModelAndView modelView;
         if (loginService.loginEmployee(username, password)) {
             employee = loginService.getEmployee(username, password);
-            //session.setAttribute("name", employee.getFirstName());
-            //session.setAttribute("role", user.getRole());
             if(employee.getRole() == 0) {
                 modelView = new ModelAndView("employee");
                 modelView.addObject("name", employee.getName());
                 return modelView;
             }
             else{
+                session.setAttribute("adminId", employee.getEmployeeId());
                 modelView = new ModelAndView("administrator");
                 modelView.addObject("name", employee.getName());
                 return modelView;

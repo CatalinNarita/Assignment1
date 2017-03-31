@@ -10,21 +10,25 @@ public class Report {
     private int reportId;
     private int employeeId;
     private int adminId;
-    private String employeeName;
     private Date startDate;
     private Date endDate;
-    private String details;
+    private String content;
 
     public Report(){}
 
-    public Report(int reportId, int employeeId, int adminId, String employeeName, Date startDate, Date endDate, String details) {
+    public Report(int reportId, int employeeId, int adminId, Date startDate, Date endDate, String details) {
         this.reportId = reportId;
         this.employeeId = employeeId;
         this.adminId = adminId;
-        this.employeeName = employeeName;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.details = details;
+        this.content = details;
+    }
+
+    public Report(Date startDate, Date endDate, String content) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.content = content;
     }
 
     public int getReportId() {
@@ -51,14 +55,6 @@ public class Report {
         this.adminId = adminId;
     }
 
-    public String getEmployeeName() {
-        return employeeName;
-    }
-
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
-    }
-
     public Date getStartDate() {
         return startDate;
     }
@@ -75,11 +71,11 @@ public class Report {
         this.endDate = endDate;
     }
 
-    public String getDetails() {
-        return details;
+    public String getContent() {
+        return content;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public void setContent(String content) {
+        this.content = content;
     }
 }

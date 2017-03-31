@@ -86,7 +86,7 @@
                     <a href="transferMoneyClientList.htm"><i class="fa fa-table "></i>Transfer Money</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-edit "></i>Process bills</a>
+                    <a href="viewBills.htm"><i class="fa fa-edit "></i>Process bills</a>
                 </li>
 
 

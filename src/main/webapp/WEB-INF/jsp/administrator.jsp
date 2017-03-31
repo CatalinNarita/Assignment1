@@ -83,7 +83,15 @@
                 </li>
 
                 <li>
-                    <a href="generateReport.htm"><i class="fa fa-table "></i>Generate Report</a>
+                    <a href="#"><i class="fa fa-edit "></i>Reports<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="generateReport.htm"><i class="fa fa-table "></i>Generate Report</a>
+                        </li>
+                        <li>
+                            <a href="viewReport.htm"><i class="fa fa-table "></i>View Report</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
 

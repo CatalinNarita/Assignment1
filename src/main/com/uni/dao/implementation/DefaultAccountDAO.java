@@ -64,7 +64,7 @@ public class DefaultAccountDAO implements AccountDAO{
 
     public Account getAccountByNumber(String accNumber){
         jdbcTemplate = new JdbcTemplate(getDataSource());
-        String SQL = "select * from account where accNumber = " + accNumber + ";";
+        String SQL = "select * from account where accNumber = '" + accNumber + "';";
         return jdbcTemplate.queryForObject(SQL, new AccountRowMapper());
     }
 

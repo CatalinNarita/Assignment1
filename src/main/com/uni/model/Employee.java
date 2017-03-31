@@ -6,15 +6,22 @@ package com.uni.model;
 public class Employee {
 
     private int employeeId;
+    private String name;
     private String username;
     private String password;
-    private String name;
     private byte role;
 
     public Employee(){}
 
-    public Employee(int employeeId, String username, String password, String name, byte role) {
+    public Employee(int employeeId, String name, String username, String password,  byte role) {
         this.employeeId = employeeId;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.role = role;
+    }
+
+    public Employee(String name,String username, String password, byte role) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -27,6 +34,14 @@ public class Employee {
 
     public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUsername() {
@@ -43,14 +58,6 @@ public class Employee {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public byte getRole() {

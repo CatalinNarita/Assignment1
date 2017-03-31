@@ -1,6 +1,7 @@
 package com.uni.services;
 
 import com.uni.dao.implementation.DefaultAccountDAO;
+import com.uni.dao.implementation.DefaultBillDAO;
 import com.uni.dao.implementation.DefaultClientDAO;
 import com.uni.dao.implementation.DefaultEmployeeDAO;
 import com.uni.model.Account;
@@ -25,6 +26,9 @@ public class EmployeeService {
     @Autowired
     private DefaultAccountDAO defaultAccountDAO;
 
+    @Autowired
+    private DefaultBillDAO defaultBillDAO;
+
     public DefaultClientDAO getDefaultClientDAO() {
         return defaultClientDAO;
     }
@@ -32,6 +36,8 @@ public class EmployeeService {
     public DefaultAccountDAO getDefaultAccountDAO() {
         return defaultAccountDAO;
     }
+
+    public DefaultBillDAO getDefaultBillDAO(){ return defaultBillDAO;};
 
     public void setDefaultClientDAO(DefaultClientDAO defaultClientDAO) {
         this.defaultClientDAO = defaultClientDAO;
